@@ -22,9 +22,8 @@ fn main() ->  Result<(), Box<dyn std::error::Error>> {
     unsafe {
         command.pre_exec(|| {
             println!("I'm squid, my PID: {}", std::process::id());
-            // use nix::sys::ptrace::traceme;
-            // return traceme().map_err(|e| e.into());
-            Ok(())
+            use nix::sys::ptrace::traceme;
+            eturn traceme().map_err(|e| e.into());           
         });
     }
 
