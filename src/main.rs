@@ -23,7 +23,7 @@ fn main() ->  Result<(), Box<dyn std::error::Error>> {
         command.pre_exec(|| {
             println!("I'm squid, my PID: {}", std::process::id());
             use nix::sys::ptrace::traceme;
-            eturn traceme().map_err(|e| e.into());           
+            return traceme().map_err(|e| e.into());           
         });
     }
 
